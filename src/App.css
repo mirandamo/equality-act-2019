@@ -32,8 +32,10 @@
 }
 
 .custom-img {
-    max-width: 300px;
+    max-width: 200px;
     max-height: 400px;
+    display: block;
+    margin: 0 auto;
 }
 
 .nav {
@@ -45,11 +47,13 @@
 .header h1 {
     margin: 30px 0;
 }
+
 .header p {
-    margin: 50px 400px;
+    max-width: 800px;
+    margin: 50px auto;
 }
 
 .navbar, .navbar-default {
     padding: 10px 300px !important;
-    justify-content:space-around !important; /* override background image gradient w/ flat color */
+    justify-content:space-around !important;
 }

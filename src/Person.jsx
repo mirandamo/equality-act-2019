@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Card, Button } from "react-bootstrap";
-import List from "./List";
-import FilteredList from "./FilteredList";
 import "./App.css";
 
 
@@ -11,18 +9,20 @@ class Person extends Component {
       super(props);
 
       this.state = {
+        // Setting the "Favorite" button to the color set by FilteredList
         color: this.props.color
       };
 }
 
 changeColor = () => {
+        // When the "Favorite" button is clicked, change its color according to the boxClick function in FilteredList
         this.setState({color: this.props.boxClick(this.props.index)})
     }
 
   render() {
     return (
         <div className="person">
-        <Card>
+        <Card mx-auto>
             <Card.Img bsPrefix="custom-img" src={this.props.img} />
             <Card.Body>
             <Card.Title>{this.props.name}</Card.Title>

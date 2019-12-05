@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import { DropdownButton, Dropdown, ButtonToolbar, Button, Navbar, NavDropdown, Nav } from "react-bootstrap";
-import FilteredList from "./FilteredList";
+import {Button, Navbar, NavDropdown} from "react-bootstrap";
 import "./App.css";
-import List from "./List";
-import Person from "./Person";
 
-
+// Header is the top bar containing all the buttons and the text
+// of the equality vote search
 class Header extends Component {
-
     constructor(props) {
       super(props);
 
@@ -17,26 +14,27 @@ class Header extends Component {
       };
 }
 
-
-  usStateChange = () => {
+// changes the color of the state button on click
+usStateChange = () => {
       if (this.state.us_state_color === "") {
-          this.setState({us_state_color: "grey"})
+          this.setState({us_state_color: "#23395d"})
       } else {
           this.setState({us_state_color: ""})
       }
       this.props.sortByState();
 }
 
+// changes the color of the fav button on click
 favButton = () => {
     if (this.state.fav_color === "") {
-        this.setState({fav_color: "grey"})
+        this.setState({fav_color: "#23395d"})
     } else {
         this.setState({fav_color: ""})
     }
     this.props.onClickFav();
 }
 
-  render() {
+render() {
     return (
         <div className="header">
         <h1>Equality Act Vote Search</h1>
@@ -45,6 +43,8 @@ favButton = () => {
         of sex-based stereotypes." The bill was passed by the United States House of Representatives on May 17, 2019, and is currently being
         referred to the committee in the Senate. <br/><br/>
         ——— Equality Act, H.R.5, 116th Congress (2019-2020)</p>
+        
+        {/* drop down item allows choices of sort and filters */}
         <Navbar bg="light" expand="lg">
         <NavDropdown title={this.props.party} id="dropdown-basic-button">
           <NavDropdown.Item eventKey="Party" onSelect={this.props.onSelectFilterTypeParty}>
